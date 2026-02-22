@@ -1,16 +1,18 @@
 class AlbumRepository:
     def __init__(self):
-        self._album = {}
-        self._next_id = 1
+        self.__albums = {}
         
-    def save():
+    def save(self, album):
+        self.__albums[album.id] = album
+    
+    def get(self, id):
+        return self.__albums.get(id)
+    
+    def get_all(self):
+        return list(self.__albums.values())
+    
+    def update(self):
         pass
     
-    def get(all=False):
-        pass
-    
-    def update():
-        pass
-    
-    def delete():
+    def delete(self):
         pass

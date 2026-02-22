@@ -1,16 +1,18 @@
 class SongRepository:
     def __init__(self):
-        self._albums = {}
-        self._next_id = 1
+        self.__songs = {}
         
-    def save():
+    def save(self):
         pass
     
-    def get(all=False):
+    def get(self, id):
         pass
     
-    def update():
+    def get_all(self):
+        return list(self.__songs.values())
+    
+    def update(self):
         pass
     
-    def delete():
+    def delete(self):
         pass
