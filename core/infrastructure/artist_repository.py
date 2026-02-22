@@ -9,16 +9,7 @@ class ArtistRepository:
         self.__artists[artist.id] = artist
     
     def get(self, id):
-        if not id:
-            return None
-        
-        # Clean the ID
-        id = id.strip()
-        
-        # Simply use get() - the diagnostic proved the ID matches
-        artist = self.__artists.get(id)
-        
-        return artist
+        return self.__artists.get(id)
     
     def get_all(self):
         return list(self.__artists.values())
@@ -27,4 +18,7 @@ class ArtistRepository:
         pass
     
     def delete(self):
-        pass
+        if id in self.__artists:
+            del self.__artists[id]
+            return True
+        return False

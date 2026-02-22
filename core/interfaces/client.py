@@ -19,5 +19,10 @@ class Client:
         
         self.album_service.add_album("A Night At The Opera", artist)
         list_2 = self.album_service.view_albums()
+        print(list_2)
         album = self.album_service.view_album(list_2[0].id)
-        print(vars(album))
+        print(album)
+        result = self.album_service.delete_album(list_2[0].id)
+        print(result)
+        list_3 = self.album_service.view_albums()
+        print(list_3)

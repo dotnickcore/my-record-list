@@ -14,5 +14,8 @@ class AlbumRepository:
     def update(self):
         pass
     
-    def delete(self):
-        pass
+    def delete(self, id):
+        if id in self.__albums:
+            del self.__albums[id]
+            return True
+        return False

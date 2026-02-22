@@ -13,12 +13,20 @@ class ArtistService:
         return self.artist_repository.get_all()
 
     def view_artist(self, id: str):
-        return self.artist_repository.get(id)
+        artist = self.artist_repository.get(id)
+        if not artist:
+            return False, f"'{id}' not found"
+        
+        return artist
         
     def update_artist(self):
         """Action for updating a artist."""
         print("> updating a artist...")
         
-    def delete_artist(self):
-        """Action for deleting a artist."""
-        print("> deleting a artist...")
+    def delete_artist(self, id: str):
+        artist = self.artist_repository.get(id)
+        if not artist:
+            return False, f"'{id}' not found"
+        
+        self.artist_repository.delete(id)
+        return True, f"'{artist.title}' deleted successfully"

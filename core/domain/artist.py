@@ -6,6 +6,4 @@ class Artist:
         self.name = name
         
     def _create_id(self):
-        random_uuid = uuid.uuid4()
-        uuid_string = str(random_uuid)
-        return uuid_string
+        return str(uuid.uuid4())
