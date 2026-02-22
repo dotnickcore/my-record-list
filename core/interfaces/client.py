@@ -1,6 +1,14 @@
+from core.application.album_service import AlbumService
+from core.application.artist_service import ArtistService
+from core.application.menu_service import MenuService
+from core.application.song_service import SongService
+
 class Client:
-    def __init__(self, menu):
-        pass
+    def __init__(self, menu_service: MenuService, artist_service: ArtistService, album_service: AlbumService, song_service: SongService):
+        self.__menu_service = menu_service
+        self.artist_service = artist_service
+        self.__album_service = album_service
+        self.__song_service = song_service
     
     def run(self):
-        pass
+        self.artist_service.add_artist()
