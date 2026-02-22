@@ -17,7 +17,7 @@ def main() -> None:
     
     # initiializing album service
     album_repository = AlbumRepository()
-    album_service = AlbumService(album_repository)
+    album_service = AlbumService(album_repository, artist_repository)
     
     # initiializing song service
     song_repository = SongRepository()

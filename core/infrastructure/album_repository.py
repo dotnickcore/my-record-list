@@ -11,8 +11,17 @@ class AlbumRepository:
     def get_all(self):
         return list(self.__albums.values())
     
-    def update(self):
-        pass
+    def update(self, id, **kwargs):
+        album = self.__albums.get(id)
+        if not album:
+            return None
+        
+        if 'title' in kwargs:
+            album.name = kwargs['title']
+        if 'artist_id' in kwargs:
+            album.artist_id = kwargs['artist_id']
+        
+        return album
     
     def delete(self, id):
         if id in self.__albums:

@@ -19,9 +19,24 @@ class ArtistService:
         
         return artist
         
-    def update_artist(self):
-        """Action for updating a artist."""
-        print("> updating a artist...")
+    def update_artist(self, id, **kwargs):
+        artist: Artist = self.artist_repository.get(id)
+        if not artist:
+            return False, "Artist not found"
+        
+        old_name = artist.name
+        changes = []
+
+        if 'name' in kwargs and kwargs['name']:
+            artist.name = kwargs['name']
+            changes.append(f"name: '{old_name}' → '{artist.name}'")
+        
+        self.artist_repository.save(artist)
+        
+        if changes:
+            return True, f"Artist updated: {', '.join(changes)}"
+        else:
+            return False, "No changes provided"
         
     def delete_artist(self, id: str):
         artist = self.artist_repository.get(id)
